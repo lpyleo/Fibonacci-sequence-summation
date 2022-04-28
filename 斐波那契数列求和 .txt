@@ -1,0 +1,101 @@
+  $P 00 60 ; 0->R0
+  $P 01 00
+  $P 02 61 ; 1->R1
+  $P 03 01
+  $P 04 62 ; 1->R2
+  $P 05 01
+  $P 06 23 ; IN->R3
+  $P 07 00
+  $P 08 07 ; R3+R1->R3
+  $P 09 73 ; R3-1->R3
+  $P 0A F0 ; BZC,0?
+  $P 0B 1E ; JMP OUT R0
+  $P 0C 73 ; R3-1->R3
+  $P 0D F0 ; BZC,1?
+  $P 0E 21 ; JMP OUT R1
+  $P 0F 04 ; R0+R1->R0
+  $P 10 02 ; R2+R0->R2
+  $P 11 73 ; R3-1->R3
+  $P 12 F0 ; BZC
+  $P 13 1B ; JMP OUT R2
+  $P 14 01 ; R1+R0->R1
+  $P 15 06 ; R2+R1->R2
+  $P 16 73 ; R3-1->R3
+  $P 17 F0 ; BZC
+  $P 18 1B ; JMP OUT R2
+  $P 19 E0 ; JMP 循环
+  $P 1A 0F
+  $P 1B 38 ; OUT R2
+  $P 1C 40
+  $P 1D 50 ; STOP
+  $P 1E 30 ; OUT R0
+  $P 1F 40 
+  $P 20 50 ; STOP
+  $P 21 34 ; OUT R1
+  $P 22 40 
+  $P 23 50 ; STOP
+
+; //***** End Of Main Memory Data *****//
+
+
+; //** Start Of MicroController Data **//
+
+  $M 00 000001    ; NOP
+  $M 01 006D43    ; PC->AR, PC加1
+  $M 03 107070    ; MEM->IR, P<1>
+  $M 04 002405    ; RS->B
+  $M 05 04B201    ; A加B->RD
+  $M 06 002407    ; RS->B
+  $M 07 013201    ; A与B->RD
+  $M 08 106009    ; MEM->AR
+  $M 09 183001    ; IO->RD
+  $M 0A 106010    ; MEM->AR
+  $M 0B 000001    ; NOP
+  $M 0C 103001    ; MEM->RD
+  $M 0D 200601    ; RD->MEM
+  $M 0E 005341    ; A->PC
+  $M 0F 0000CB    ; NOP, P<3>
+  $M 10 280401    ; RS->IO
+  $M 11 103001    ; MEM->RD
+  $M 12 063201    ; A-1->RD,自减
+  $M 13 002414    ; RS->B
+  $M 14 05B201    ; A减B->RD
+  $M 15 002416    ; RS->B
+  $M 16 01B201    ; A或B->RD
+  $M 17 002418    ; RS->B
+  $M 18 02B201    ; A右环移->RD
+  $M 1B 005341    ; A->PC
+  $M 1C 10101D    ; MEM->A
+  $M 1D 10608C    ; MEM->AR, P<2>
+  $M 1E 10601F    ; MEM->AR
+  $M 1F 101020    ; MEM->A
+  $M 20 10608C    ; MEM->AR, P<2>
+  $M 28 101029    ; MEM->A
+  $M 29 00282A    ; RI->B
+  $M 2A 04E22B    ; A加B->AR
+  $M 2B 04928C    ; A加B->A, P<2>
+  $M 2C 10102D    ; MEM->A
+  $M 2D 002C2E    ; PC->B
+  $M 2E 04E22F    ; A加B->AR
+  $M 2F 04928C    ; A加B->A, P<2>
+  $M 30 001604    ; RD->A
+  $M 31 001606    ; RD->A
+  $M 32 006D48    ; PC->AR, PC加1
+  $M 33 006D4A    ; PC->AR, PC加1
+  $M 34 003401    ; RS->RD
+  $M 35 000035    ; NOP
+  $M 36 006D51    ; PC->AR, PC加1
+  $M 37 001612    ; RD->A
+  $M 38 001613    ; RD->A
+  $M 39 001615    ; RD->A
+  $M 3A 001617    ; RD->A
+  $M 3B 000001    ; NOP
+  $M 3C 006D5C    ; PC->AR, PC加1
+  $M 3D 006D5E    ; PC->AR, PC加1
+  $M 3E 006D68    ; PC->AR, PC加1
+  $M 3F 006D6C    ; PC->AR, PC加1
+
+; //** End Of MicroController Data **//
+
+
+
